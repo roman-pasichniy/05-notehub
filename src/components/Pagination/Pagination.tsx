@@ -9,11 +9,6 @@ const ReactPaginate = (
   ReactPaginateModule as unknown as ModuleWithDefault<ComponentType<ReactPaginateProps>>
 ).default;
 
-
-const Paginate =
-  (ReactPaginate as unknown as { default: typeof ReactPaginate }).default ||
-  ReactPaginate;
-
 interface PageChangeEvent {
   selected: number;
 }
@@ -30,7 +25,7 @@ export default function Pagination({
   onPageChange,
 }: PaginationProps) {
   return (
-    <Paginate
+    <ReactPaginate
       pageCount={pageCount}
       pageRangeDisplayed={5}
       marginPagesDisplayed={1}
